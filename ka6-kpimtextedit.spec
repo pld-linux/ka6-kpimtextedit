@@ -34,19 +34,19 @@ BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
 BuildRequires:	kf6-ki18n-devel >= %{kframever}
 BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
 BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-ktextaddons-devel >= 1.5.4
 BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
 BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
 BuildRequires:	kf6-sonnet-devel >= %{kframever}
 BuildRequires:	kf6-syntax-highlighting-devel >= %{kframever}
-BuildRequires:	ktextaddons-devel >= 1.5.4
 BuildRequires:	ninja
 BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Obsoletes:	ka5-%{kaname} < %{version}
+Obsoletes:	ka5-kpimtextedit < 24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,7 +61,7 @@ Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:	ka5-%{kaname}-devel < %{version}
+Obsoletes:	ka5-kpimtextedit-devel < 24
 
 %description devel
 Header files for %{kaname} development.
