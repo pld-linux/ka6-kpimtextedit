@@ -2,9 +2,9 @@
 # Conditional build:
 %bcond_with	tests		# test suite
 
-%define		kdeappsver	24.08.2
-%define		kframever	5.94.0
-%define		qtver		5.15.2
+%define		kdeappsver	%{version}
+%define		kf_ver		6.3.0
+%define		qt_ver		6.6.0
 %define		kaname		kpimtextedit
 Summary:	KPIMTextedit - a textedit with PIM-specific features
 Summary(pl.UTF-8):	KPIMTextedit - pole edycji tekstu z funkcjami specyficznymi dla PIM
@@ -16,36 +16,46 @@ Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	33ae0c688676e882209b603faa0b8d74
 URL:		https://kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Designer-devel
-BuildRequires:	Qt6Gui-devel
-BuildRequires:	Qt6Test-devel
-BuildRequires:	Qt6TextToSpeech-devel >= %{qtver}
-BuildRequires:	Qt6UiTools-devel >= 5.11.1
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt6Core-devel >= %{qt_ver}
+BuildRequires:	Qt6Gui-devel >= %{qt_ver}
+%if %{with tests}
+BuildRequires:	Qt6Test-devel >= %{qt_ver}
+%endif
+BuildRequires:	Qt6Widgets-devel >= %{qt_ver}
 BuildRequires:	cmake >= 3.20
-BuildRequires:	gettext-devel
-BuildRequires:	grantlee-qt6-devel >= 5.1
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcodecs-devel >= %{kframever}
-BuildRequires:	kf6-kconfig-devel >= %{kframever}
-BuildRequires:	kf6-kconfigwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	gettext-tools
+BuildRequires:	kf6-extra-cmake-modules >= %{kf_ver}
+BuildRequires:	kf6-kcodecs-devel >= %{kf_ver}
+BuildRequires:	kf6-kconfig-devel >= %{kf_ver}
+BuildRequires:	kf6-kcoreaddons-devel >= %{kf_ver}
+BuildRequires:	kf6-ki18n-devel >= %{kf_ver}
+BuildRequires:	kf6-kiconthemes-devel >= %{kf_ver}
+BuildRequires:	kf6-kio-devel >= %{kf_ver}
 BuildRequires:	kf6-ktextaddons-devel >= 1.5.4
-BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
-BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
-BuildRequires:	kf6-sonnet-devel >= %{kframever}
-BuildRequires:	kf6-syntax-highlighting-devel >= %{kframever}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kf_ver}
+BuildRequires:	kf6-kxmlgui-devel >= %{kf_ver}
+BuildRequires:	kf6-sonnet-devel >= %{kf_ver}
+BuildRequires:	kf6-syntax-highlighting-devel >= %{kf_ver}
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	Qt6Core >= %{qt_ver}
+Requires:	Qt6Gui >= %{qt_ver}
+Requires:	Qt6Widgets >= %{qt_ver}
+Requires:	kf6-kcodecs >= %{kf_ver}
+Requires:	kf6-kconfig >= %{kf_ver}
+Requires:	kf6-kcoreaddons >= %{kf_ver}
+Requires:	kf6-ki18n >= %{kf_ver}
+Requires:	kf6-kiconthemes >= %{kf_ver}
+Requires:	kf6-kio >= %{kf_ver}
+Requires:	kf6-ktextaddons >= 1.5.4
+Requires:	kf6-kwidgetsaddons >= %{kf_ver}
+Requires:	kf6-kxmlgui >= %{kf_ver}
+Requires:	kf6-sonnet >= %{kf_ver}
+Requires:	kf6-syntax-highlighting >= %{kf_ver}
 Obsoletes:	ka5-kpimtextedit < 24
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,6 +71,7 @@ Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	kf6-ktextaddons-devel >= 1.5.4
 Obsoletes:	ka5-kpimtextedit-devel < 24
 
 %description devel
