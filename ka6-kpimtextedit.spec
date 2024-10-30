@@ -10,7 +10,7 @@ Summary:	KPIMTextedit - a textedit with PIM-specific features
 Summary(pl.UTF-8):	KPIMTextedit - pole edycji tekstu z funkcjami specyficznymi dla PIM
 Name:		ka6-%{kaname}
 Version:	24.08.2
-Release:	2
+Release:	3
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %ninja_install -C build
 
-%find_lang %{kaname} --all-name --with-kde
+%find_lang libkpimtextedit6
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{kaname}.lang
+%files -f libkpimtextedit6.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libKPim6TextEdit.so.*.*
 %ghost %{_libdir}/libKPim6TextEdit.so.6
