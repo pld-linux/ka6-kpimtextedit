@@ -2,19 +2,19 @@
 # Conditional build:
 %bcond_with	tests		# test suite
 
-%define		kdeappsver	25.08.3
+%define		kdeappsver	25.12.0
 %define		kf_ver		6.3.0
 %define		qt_ver		6.6.0
 %define		kaname		kpimtextedit
 Summary:	KPIMTextedit - a textedit with PIM-specific features
 Summary(pl.UTF-8):	KPIMTextedit - pole edycji tekstu z funkcjami specyficznymi dla PIM
 Name:		ka6-%{kaname}
-Version:	25.08.3
-Release:	2
+Version:	25.12.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	707eda8dae4ba918ee207c396979aae1
+# Source0-md5:	ec369f5ff2f06ed703b500a822ebd979
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6Gui-devel >= %{qt_ver}
@@ -31,7 +31,7 @@ BuildRequires:	kf6-kcoreaddons-devel >= %{kf_ver}
 BuildRequires:	kf6-ki18n-devel >= %{kf_ver}
 BuildRequires:	kf6-kiconthemes-devel >= %{kf_ver}
 BuildRequires:	kf6-kio-devel >= %{kf_ver}
-BuildRequires:	kf6-ktextaddons-devel >= 1.6.0
+BuildRequires:	kf6-ktextaddons-devel >= 1.8.0
 BuildRequires:	kf6-kwidgetsaddons-devel >= %{kf_ver}
 BuildRequires:	kf6-kxmlgui-devel >= %{kf_ver}
 BuildRequires:	kf6-sonnet-devel >= %{kf_ver}
@@ -51,7 +51,7 @@ Requires:	kf6-kcoreaddons >= %{kf_ver}
 Requires:	kf6-ki18n >= %{kf_ver}
 Requires:	kf6-kiconthemes >= %{kf_ver}
 Requires:	kf6-kio >= %{kf_ver}
-Requires:	kf6-ktextaddons >= 1.5.4
+Requires:	kf6-ktextaddons >= 1.8.0
 Requires:	kf6-kwidgetsaddons >= %{kf_ver}
 Requires:	kf6-kxmlgui >= %{kf_ver}
 Requires:	kf6-sonnet >= %{kf_ver}
