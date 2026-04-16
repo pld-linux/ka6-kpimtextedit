@@ -2,19 +2,19 @@
 # Conditional build:
 %bcond_with	tests		# test suite
 
-%define		kdeappsver	25.12.3
+%define		kdeappsver	26.04.0
 %define		kf_ver		6.3.0
 %define		qt_ver		6.6.0
 %define		kaname		kpimtextedit
 Summary:	KPIMTextedit - a textedit with PIM-specific features
 Summary(pl.UTF-8):	KPIMTextedit - pole edycji tekstu z funkcjami specyficznymi dla PIM
 Name:		ka6-%{kaname}
-Version:	25.12.3
-Release:	2
+Version:	26.04.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	52dbf4767005876ffd8d099dd1cb3993
+# Source0-md5:	f26c434c556a621256b1412cf175f17c
 URL:		https://kde.org/
 BuildRequires:	Qt6Core-devel >= %{qt_ver}
 BuildRequires:	Qt6Gui-devel >= %{qt_ver}
@@ -51,7 +51,7 @@ Requires:	kf6-kcoreaddons >= %{kf_ver}
 Requires:	kf6-ki18n >= %{kf_ver}
 Requires:	kf6-kiconthemes >= %{kf_ver}
 Requires:	kf6-kio >= %{kf_ver}
-Requires:	kf6-ktextaddons >= 1.8.0
+Requires:	kf6-ktextaddons >= 2.0.0
 Requires:	kf6-kwidgetsaddons >= %{kf_ver}
 Requires:	kf6-kxmlgui >= %{kf_ver}
 Requires:	kf6-sonnet >= %{kf_ver}
